@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model EmergencyLog {
+  id          String   @id @default(cuid())
+  description String
+  category    String
+  urgency     String
+  checklist   String   // Storing JSON string of the checklist array
+  createdAt   DateTime @default(now())
+}
